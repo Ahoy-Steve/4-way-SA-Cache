@@ -1,0 +1,53 @@
+# 1. Quit any currently running simulation
+quit -sim
+
+# 2. Clear the transcript window
+.main clear
+
+# 3. Create the 'work' library (suppress error if it already exists)
+vlib work
+
+# 4. Compile the standard Verilog files
+# (defs.vh is automatically included by the compiler)
+vlog memory.v cache_controller.v tb_cache.v
+
+# 5. Start the simulator
+# (-voptargs="+acc" prevents ModelSim from optimizing away internal signals so you can see them)
+vsim -voptargs="+acc" work.tb_cache
+
+# 6. Configure the Waveform Window
+view wave
+delete wave *
+
+# --- Add System Signals ---
+add wave -divider "System Signals"
+add wave -color Gold /tb_cache/clock
+add wave -color Gold /tb_cache/rst_n
+
+# --- Add CPU Interface Signals ---
+add wave -divider "CPU Interface"
+add wave -radix hexadecimal /tb_cache/caddress
+add wave /tb_cache/rden
+add wave /tb_cache/wren
+add wave -radix hexadecimal /tb_cache/cdin
+add wave -color Green /tb_cache/hit
+add wave -color Cyan -radix hexadecimal /tb_cache/cdout
+
+# --- Add Internal Cache Debug Signals ---
+add wave -divider "Internal Cache FSM"
+add wave -color Yellow -radix unsigned /tb_cache/UUT_CACHE/current_state
+add wave -radix hexadecimal /tb_cache/UUT_CACHE/active_index
+add wave -radix hexadecimal /tb_cache/UUT_CACHE/active_tag
+add wave -radix unsigned /tb_cache/UUT_CACHE/target_way
+
+# --- Add Main Memory Signals ---
+add wave -divider "Memory Interface"
+add wave -radix hexadecimal /tb_cache/maddress
+add wave /tb_cache/mrden
+add wave /tb_cache/mwren
+
+# 7. Run the simulation to the end
+run -all
+
+# 8. Zoom the waveform to fit the entire simulation length
+wave zoom full
