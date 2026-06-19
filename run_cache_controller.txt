@@ -9,7 +9,8 @@ vlib work
 
 # 4. Compile the standard Verilog files
 # (defs.vh is automatically included by the compiler)
-vlog memory.v cache_controller.v tb_cache.v
+# NOTE: cache_stats.v is now included so the statistics monitor is built.
+vlog memory.v cache_controller.v cache_stats.v tb_cache.v
 
 # 5. Start the simulator
 # (-voptargs="+acc" prevents ModelSim from optimizing away internal signals so you can see them)
@@ -46,7 +47,15 @@ add wave -radix hexadecimal /tb_cache/maddress
 add wave /tb_cache/mrden
 add wave /tb_cache/mwren
 
+# --- Add Cache Statistics ---
+add wave -divider "Statistics"
+add wave -color Orange -radix unsigned /tb_cache/STATS/num_references
+add wave -color Green  -radix unsigned /tb_cache/STATS/num_hits
+add wave -color Red    -radix unsigned /tb_cache/STATS/num_misses
+
 # 7. Run the simulation to the end
+# (The numeric statistics report and the PASS/FAIL summary are printed
+#  to the Transcript window by the testbench at the end of the run.)
 run -all
 
 # 8. Zoom the waveform to fit the entire simulation length

@@ -1,0 +1,61 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\lciol\Desktop\Cache
+vcache_controller
+!s100 D1VJXZPBTV49F7fIjz;XP0
+IE]aQEaggadc5VP=cR^Eob3
+V_9E4WNERof>S<k>^ho1l82
+w1781839853
+8cache_controller.v
+Fcache_controller.v
+L0 4
+Z1 OV;L;6.5b;42
+r1
+!s85 0
+31
+!s101 -O0
+o-O0
+vcache_stats
+!s100 5hE4m:4ogZoA7g<ESN:f72
+I^9`9m_II^@Pe79WNidAN[2
+VcO><6@eabMAZ_];AO3olY3
+w1781839309
+8cache_stats.v
+Fcache_stats.v
+L0 4
+R1
+r1
+!s85 0
+31
+!s101 -O0
+o-O0
+vmemory
+!s100 Wf]5cF[R0iAehLjUH;JI_2
+IPbd[ndYMgfkjgf<=N=3342
+VZ0I559GHV5YX3n;H^CS3k1
+w1781728449
+8memory.v
+Fmemory.v
+L0 4
+R1
+r1
+!s85 0
+31
+!s101 -O0
+o-O0
+vtb_cache
+!s100 QDY[Ol3=LdWaVFMmzN9Y22
+IjEdzeL;?Tc_]6bAPR3]I91
+V?bLNO2^`i>IocKSReDkA03
+w1781840235
+8tb_cache.v
+Ftb_cache.v
+L0 4
+R1
+r1
+!s85 0
+31
+!s101 -O0
+o-O0
