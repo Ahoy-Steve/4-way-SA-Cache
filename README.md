@@ -40,7 +40,7 @@ address.
 
 ---
 
-## How to run (ModelSim / Questa)
+## How to run (ModelSim)
 
 From the simulator's command line, in the project directory:
 
